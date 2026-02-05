@@ -1,0 +1,4 @@
+{
+    "base_url":"https://sstdfews.cicplata.org/FewsWebServices/rest/fewspiservice/v1",
+    "default_filterId": "Mod_Hydro_Output_Selected"
+}
