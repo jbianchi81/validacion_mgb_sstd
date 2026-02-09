@@ -11,6 +11,74 @@ import sys
 documentFormat = "PI_JSON"
 config_path = "config/config.json"
 
+class Event(TypedDict):
+    date : str
+    time : str
+    value : str
+    flag : str
+
+class TimeStep(TypedDict):
+    unit : str
+    multiplier : str
+
+class DateTime(TypedDict):
+    date : str
+    time : str
+
+class TimeSeriesHeader(TypedDict):
+    type : str
+    moduleInstanceId : str
+    locationId : str
+    parameterId : str
+    timeStep : TimeStep
+    startDate : DateTime
+    endDate : DateTime
+    forecastDate : DateTime
+    missVal : str
+    stationName : str
+    lat : str
+    lon : str
+    x : str
+    y : str
+    z : str
+    units : str
+    creationDate : str
+    creationTime : str
+    approvedDate : DateTime
+
+class TimeSeriesResponse(TypedDict):
+    header : TimeSeriesHeader
+    events : List[Event]
+
+class getTimeseriesResponse(TypedDict):
+    version : str
+    timeZone : str
+    timeseries : List[TimeSeriesResponse]
+
+class Location(TypedDict):
+    locationId : str
+    stationName : str
+    lat : str
+    lon : str
+    x : str
+    y : str
+    z : str
+
+class Timeseries(TypedDict):
+    locationId : str
+    parameterId : str
+    qualifierId : str
+    timestep : TimeStep
+    unit : str
+    timeZone : str
+    metadata : dict
+
+class TimeseriesValue(TypedDict):
+    time : datetime
+    value : float
+    flag : int
+    comment : str
+
 def loadConfig(config_path : str) -> dict:
     try:
         with open(config_path,"r",encoding="utf-8") as f:
@@ -33,49 +101,6 @@ def loadConfig(config_path : str) -> dict:
     return config
 
 config = loadConfig(config_path)
-
-class Event(TypedDict):
-    date : str
-    time : str
-    value : str
-    flag : str
-
-class TimeStep(TypedDict):
-    unit : str
-    multiplier : str
-
-class DateTime(TypedDict):
-    date : str
-    time : str
-
-class TimeSeriesHeader(TypedDict):
-    type : str
-    moduleInstanceId : str
-    parameterId : str
-    timeStep : TimeStep
-    startDate : DateTime
-    endDate : DateTime
-    forecastDate : DateTime
-    missVal : str
-    stationName : str
-    lat : str
-    lon : str
-    x : str
-    y : str
-    z : str
-    units : str
-    creationDate : str
-    creationTime : str
-    approvedDate : DateTime
-
-class TimeSeries(TypedDict):
-    header : TimeSeriesHeader
-    events : List[Event]
-
-class getTimeseriesResponse(TypedDict):
-    version : str
-    timeZone : str
-    timeseries : List[TimeSeries]
 
 def descargarMgb(
         fecha_pronostico : datetime = datetime.now(),
