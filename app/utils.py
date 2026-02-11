@@ -53,4 +53,3 @@ def execStmtFetchAll(dsn, stmt : str, params : tuple=()):
                 params
             )
             return cur.fetchall()
-

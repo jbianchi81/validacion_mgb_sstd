@@ -4,12 +4,9 @@ from datetime import datetime, timedelta, timezone, date
 import requests
 from typing import TypedDict, List, Self, Tuple, Optional
 import json
-import sys
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 import logging
 from .utils import loadConfig, execStmt, execStmtMany, execStmtFetchAll
-import psycopg
-from psycopg import sql
 from textwrap import dedent
 import argparse
 
@@ -116,6 +113,22 @@ class Location:
             """),
             (self.locationId, self.stationName, self.lon, self.lat))
         return id
+    
+    @classmethod
+    def read_one(cls, locationId : str):
+        matches = execStmtFetchAll(
+            config["user_dsn"], 
+            """SELECT id, station_name, st_x(geometry) lon, st_y(geometry) lat FROM locations WHERE id=%s""",
+            (locationId,)
+        )
+        if not len(matches):
+            raise ValueError("No se encontró la location con id=%s" % locationId)
+        return cls(
+            locationId = matches[0]["id"],
+            stationName = matches[0]["station_name"],
+            lat = matches[0]["lat"],
+            lon = matches[0]["lon"]
+        )
 
 @dataclass
 class TimeseriesValue:
@@ -190,6 +203,73 @@ class TimeseriesValue:
             self.to_row())
         self.id = id
         return id
+    
+    @classmethod
+    def read(
+        cls, 
+        timeseries_id : int = None, 
+        time : datetime = None,
+        timestart : datetime = None, 
+        timeend : datetime = None,
+        id : int = None,
+        value : float = None,
+        flag : str = None,
+        comment : str = None) -> List[Self]:
+        conditions = []
+        params = []
+        if timeseries_id is not None:
+            conditions.append("series_id = %s")
+            params.append(timeseries_id)
+
+        if time is not None:
+            conditions.append("time = %s")
+            params.append(time)
+
+        if timestart is not None:
+            conditions.append("time >= %s")
+            params.append(timestart)
+
+        if timeend is not None:
+            conditions.append("time <= %s")
+            params.append(timeend)
+
+        if id is not None:
+            conditions.append("id = %s")
+            params.append(id)
+
+        if value is not None:
+            conditions.append("value = %s")
+            params.append(value)
+
+        if flag is not None:
+            conditions.append("flag = %s")
+            params.append(flag)
+
+        if comment is not None:
+            conditions.append("comment = %s")
+            params.append(comment)
+
+        sql = "SELECT * FROM timeseries_values"
+
+        if conditions:
+            sql += " WHERE " + " AND ".join(conditions)
+
+        matches = execStmtFetchAll(config["user_dsn"], sql, params)
+        ts_values = []
+        for match in matches:
+            ts_value = cls(
+                timeseries_id = match["series_id"], 
+                time = match["time"],
+                value = match["value"],
+                flag = match["flag"],
+                comment = match["comment"],
+                id = match["id"]
+            )
+            ts_values.append(ts_value)
+        return ts_values
+
+
+
 
 @dataclass
 class Timeseries:
@@ -286,7 +366,9 @@ class Timeseries:
         units : str = None,
         qualifierId : str = None,
         forecastDate : datetime = None,
-        id : int = None) -> List[Self]:
+        id : int = None,
+        timestart : datetime = None,
+        timeend : datetime = None) -> List[Self]:
         
         conditions = []
         params = []
@@ -325,21 +407,48 @@ class Timeseries:
             sql += " WHERE " + " AND ".join(conditions)
 
         ts_list = execStmtFetchAll(config["user_dsn"], sql, params)
+        ts_obj_list = []
         for ts in ts_list:
             timeseries = cls(
                 locationId = ts["location_id"],
-                parameterId = ts[""],
-                timestep = ts["timedelta"],
+                parameterId = ts["parameter_id"],
+                timestep = ts["timestep"],
                 units = ts["units"],
                 qualifierId = ts["qualifier_id"] if ts["qualifier_id"] != "" else None,
-                forecastDate = ts["forecast_date"]
+                forecastDate = ts["forecast_date"],
+                id = ts["id"]
             )
-        return timeseries
+            timeseries.read_location()
+            timeseries.read_values(timestart, timeend)
+            ts_obj_list.append(timeseries)
+        return ts_obj_list
 
+    def read_location(self):
+        self.location = Location.read_one(self.locationId)
+
+    def read_values(self, timestart : datetime = None, timeend : datetime = None):
+        if self.id is None:
+            raise ValueError("Falta id de timeseries, no se pueden leer los valores")
+        self.values = TimeseriesValue.read(timeseries_id=self.id, timestart=timestart, timeend=timeend)
+
+    def to_dict(self, json_serializable : bool=False):
+        data = asdict(self)
+        if json_serializable:
+            data["forecastDate"] = data["forecastDate"].isoformat()
+            data["timestep"] = {"seconds": int(data["timestep"].total_seconds())}
+            for value in data["values"]:
+                value["time"] = value["time"].isoformat()
+        return data
+    
+        
 
 def download_timeseries(
         fecha_pronostico : datetime | None = None,
-        filterId : str | None = None
+        filterId : str | None = None,
+        locationId : str | None = None,
+        parameterId : str | None = None,
+        timestart : str | None = None,
+        timeend : str | None = None
 ) -> GetTimeseriesResponse:
     if fecha_pronostico is None:
         fecha_pronostico = datetime.now()
@@ -349,6 +458,8 @@ def download_timeseries(
     fin = inicio + timedelta(days=1)
     startForecastTime = "%sZ" % (inicio.isoformat(timespec='seconds'))
     endForecastTime =  "%sZ" % (fin.isoformat(timespec='seconds'))
+    startTime = "%sZ" % (timestart.isoformat(timespec='seconds')) if timestart is not None else None
+    endTime = "%sZ" % (timeend.isoformat(timespec='seconds')) if timeend is not None else None
     url = "%s/timeseries" % (config["base_url"])
     response = requests.get(
         url, 
@@ -356,7 +467,11 @@ def download_timeseries(
             "filterId": filterId, 
             "startForecastTime": startForecastTime, 
             "endForecastTime": endForecastTime, 
-            "documentFormat": documentFormat
+            "locationId": locationId,
+            "parameterId": parameterId,
+            "documentFormat": documentFormat,
+            "startTime": startTime,
+            "endTime": endTime
         }
     )
     if response.status_code >= 400:
@@ -391,8 +506,16 @@ def parseDateTime(date : str, time : str, time_zone : float=None) -> datetime:
 #     values = TimeseriesValue.from_api_response(data, time_zone)
 #     return (location, timeseries, values)
 
+ACTIONS = ["create", "read", "delete"]
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Forecast processor")
+
+    parser.add_argument(
+        "action",
+        choices=ACTIONS,
+        help="Action to perform"
+    )
 
     parser.add_argument(
         "--forecast-date",
@@ -428,21 +551,69 @@ def parse_args():
         help="Input file. If not set, downloads from API source using --forecast-date and --filter-id"
     )
 
+    parser.add_argument(
+        "--location-id",
+        type=str,
+        required=False,
+        help="read only timeseries of this location"
+    )
+
+    parser.add_argument(
+        "--parameter-id",
+        type=str,
+        required=False,
+        help="read only timeseries of this parameter"
+    )
+
+    parser.add_argument(
+        "--timestart",
+        type=date.fromisoformat,   # expects YYYY-MM-DD
+        required=False,
+        help="read only values starting from this date"
+    )
+
+    parser.add_argument(
+        "--timeend",
+        type=date.fromisoformat,   # expects YYYY-MM-DD
+        required=False,
+        help="read only values before this date"
+    )
+
     return parser.parse_args()
 
 if __name__ == "__main__":
     args = parse_args()
-    if args.input is not None:
-        with open(args.input, "r", encoding="utf-8") as f:
-            data = json.load(f)
-    else:
-        data = download_timeseries(args.forecast_date, args.filter_id)
+
+    if args.action == "create":
+        if args.input is not None:
+            with open(args.input, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        else:
+            data = download_timeseries(args.forecast_date, args.filter_id, args.location_id, args.parameter_id, args.timestart, args.timeend)
+            if args.output is not None:
+                with open(args.output, "w", encoding="utf-8") as f:
+                    json.dump(data, f, indent=2)
+        # else:
+        #     json.dump(data, sys.stdout, indent=2)
+        #     sys.stdout.write("\n")
+        if args.save:
+            Timeseries.from_api_response(data, True)
+
+    elif args.action == "read":
+        data = Timeseries.read(
+            forecastDate = args.forecast_date,
+            locationId = args.location_id,
+            parameterId = args.parameter_id,
+            timestart = args.timestart, 
+            timeend = args.timeend
+        )
+        logging.info("Se leyeron %i series temporales" % (len(data)))
         if args.output is not None:
             with open(args.output, "w", encoding="utf-8") as f:
-                json.dump(data, f, indent=2)
-    # else:
-    #     json.dump(data, sys.stdout, indent=2)
-    #     sys.stdout.write("\n")
-    if args.save:
-        Timeseries.from_api_response(data, True)
+                json.dump([d.to_dict(True) for d in data], f, indent=2)
+    elif args.action == "delete":
+        logging.warning("No implementado")
+    else:
+        raise ValueError("Argumento 'action' incorrecto. Valores válidos: %s" % (", ".join(ACTIONS)))
+        
         
