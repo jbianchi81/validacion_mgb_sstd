@@ -43,5 +43,14 @@ def execStmtMany(dsn, stmt : str, rows : List[tuple]):
                 sql.SQL(stmt),
                 rows
             )
-            return [row[0] for row in cur.fetchall()]
+            return cur.rowcount # [row[0] for row in cur.fetchall()]
+
+def execStmtFetchAll(dsn, stmt : str, params : tuple=()):
+    with psycopg.connect(dsn) as conn:
+        with conn.cursor(row_factory=psycopg.rows.dict_row) as cur:
+            cur.execute(
+                sql.SQL(stmt),
+                params
+            )
+            return cur.fetchall()
 

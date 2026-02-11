@@ -5,7 +5,7 @@ BEGIN;
 CREATE TABLE  IF NOT EXISTS locations  (
     id     TEXT NOT NULL PRIMARY KEY,
     station_name TEXT NOT NULL,
-    geometry geometry(Point, 5432) NOT NULL
+    geometry geometry(Point, 4326) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS timeseries  (
@@ -13,17 +13,18 @@ CREATE TABLE IF NOT EXISTS timeseries  (
 
     location_id     TEXT NOT NULL REFERENCES locations(id) ON DELETE CASCADE,
     parameter_id    TEXT NOT NULL,
-    qualifier_id    TEXT,
+    qualifier_id    TEXT NOT NULL DEFAULT '', -- '' = observed
     forecast_date   TIMESTAMPTZ,  -- NULL = observed
     timestep        INTERVAL,
-    units            TEXT,
+    units            TEXT
+);
 
-    UNIQUE (
-        location_id,
-        parameter_id,
-        qualifier_id,
-        forecast_date
-    )
+CREATE UNIQUE INDEX timeseries_unique
+ON timeseries (
+    location_id,
+    parameter_id,
+    qualifier_id,
+    forecast_date
 );
 
 CREATE TABLE  IF NOT EXISTS timeseries_values (
