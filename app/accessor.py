@@ -1,5 +1,3 @@
-# https://sstdfews.cicplata.org/FewsWebServices/rest/fewspiservice/v1/timeseries?filterId=Mod_Hydro_Output_Selected&startForecastTime=2026-01-27T00%3A00%3A00Z&endForecastTime=2026-01-28T00%3A00%3A00Z&documentFormat=PI_JSON
-
 from datetime import datetime, timedelta, timezone, date
 import requests
 from typing import TypedDict, List, Self, Tuple, Optional
@@ -9,8 +7,8 @@ import logging
 from .utils import loadConfig, execStmt, execStmtMany, execStmtFetchAll
 from textwrap import dedent
 import argparse
-
-logger = logging.getLogger(__name__)
+import pandas as pd
+import sys
 
 # startForecastTime = "2026-01-27T00%3A00%3A00Z"
 # endForecastTime = "2026-01-28T00%3A00%3A00Z"
@@ -18,6 +16,16 @@ documentFormat = "PI_JSON"
 config_path = "config/config.json"
 
 config = loadConfig(config_path)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    handlers=[
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+
+logger = logging.getLogger(__name__)
 
 class Event(TypedDict):
     date : str
@@ -254,6 +262,8 @@ class TimeseriesValue:
         if conditions:
             sql += " WHERE " + " AND ".join(conditions)
 
+        sql += " ORDER BY series_id, time"
+
         matches = execStmtFetchAll(config["user_dsn"], sql, params)
         ts_values = []
         for match in matches:
@@ -431,16 +441,86 @@ class Timeseries:
             raise ValueError("Falta id de timeseries, no se pueden leer los valores")
         self.values = TimeseriesValue.read(timeseries_id=self.id, timestart=timestart, timeend=timeend)
 
-    def to_dict(self, json_serializable : bool=False):
+    def to_dict(self, json_serializable : bool=False, include_id : bool = True):
         data = asdict(self)
         if json_serializable:
             data["forecastDate"] = data["forecastDate"].isoformat()
             data["timestep"] = {"seconds": int(data["timestep"].total_seconds())}
             for value in data["values"]:
+                if not include_id:
+                    del value["id"]
+                    del value["timeseries_id"]
                 value["time"] = value["time"].isoformat()
         return data
     
+    def to_df(self) -> pd.DataFrame:
+        d = self.to_dict()
+        return pd.DataFrame(d["values"])
+    
+    def to_json(self, filename : str):
+        with open(filename, "w", encoding="utf-8") as f:
+            json.dump({"timeSeries": [self.to_dict(True)]}, f, indent=2)
         
+    def to_csv(self, filename : str, include_id : bool = False):
+        with open(filename, "w", encoding="utf-8") as f:
+            df = self.to_df()
+            if not include_id:
+                df = df.drop(columns=["id"])
+            df.to_csv(f, index=False)
+    
+    @classmethod
+    def to_df_many(cls, ts_list : List[Self]) -> pd.DataFrame:
+        values = []
+        for ts in ts_list:
+            ts_d = ts.to_dict()
+            values.extend(ts_d["values"])
+        return pd.DataFrame(values)
+    
+    def filename_from_pattern(self, file_pattern, check_placeholders : bool = False) -> str:
+        if check_placeholders:
+            if "{L}" not in file_pattern:
+                raise ValueError("Falta '{L}' (location id) en el patrón de archivo")
+            if "{P}" not in file_pattern:
+                raise ValueError("Falta '{P}' (parameter id) en el patrón de archivo")
+            if self.forecastDate and "{T}" not in file_pattern:
+                raise ValueError("Falta '{T}' (forecast date) en el patrón de archivo")    
+        filename = file_pattern.replace("{L}",self.locationId).replace("{P}",self.parameterId)
+        if self.forecastDate is not None:
+            filename = filename.replace("{T}",self.forecastDate.isoformat()[0:10]) 
+        if self.id is not None:
+            filename = filename.replace("{I}",str(self.id)) 
+
+        return filename
+        
+    @classmethod
+    def to_file_many(cls, ts_list : List[Self], filename : str | None = None, file_pattern : str | None = None, format : str = "json", include_id : bool = False):
+        if filename is not None:
+            with open(filename, "w", encoding="utf-8") as f:
+                if format == "csv":
+                    df = cls.to_df_many(ts_list)
+                    if not include_id:
+                        df = df.drop(columns=["id"])    
+                    df.to_csv(f, index=False)
+                elif format == "json":
+                    json.dump({"timeSeries":[ts.to_dict(True, include_id=include_id) for ts in ts_list]}, f, indent=2)
+                else:
+                    raise ValueError("Unknown format: %s" % format)
+                logging.info("Se guardó el archivo %s" % (args.output))
+        elif file_pattern is not None:
+            for ts in ts_list:
+                fname = ts.filename_from_pattern(file_pattern)
+                if format == "csv":
+                    df = ts.to_df()
+                    if not include_id:
+                        df = df.drop(columns=["id"])
+                    df.to_csv(fname, index=False)
+                elif format == "json":
+                    with open(fname, "w", encoding="utf-8") as f:
+                        json.dump({"timeSeries":[ts.to_dict(True, include_id=include_id)]}, f, indent=2)
+                logging.info("Se escribió el archivo %s" % (fname))
+        else:
+            raise ValueError("Falta filename o file_pattern")
+
 
 def download_timeseries(
         fecha_pronostico : datetime | None = None,
@@ -450,6 +530,8 @@ def download_timeseries(
         timestart : str | None = None,
         timeend : str | None = None
 ) -> GetTimeseriesResponse:
+    # https://sstdfews.cicplata.org/FewsWebServices/rest/fewspiservice/v1/timeseries?filterId=Mod_Hydro_Output_Selected&startForecastTime=2026-01-27T00%3A00%3A00Z&endForecastTime=2026-01-28T00%3A00%3A00Z&documentFormat=PI_JSON
+
     if fecha_pronostico is None:
         fecha_pronostico = datetime.now()
     if filterId is None:
@@ -539,6 +621,13 @@ def parse_args():
     )
 
     parser.add_argument(
+        "--file-pattern",
+        type=str,
+        required=False,
+        help="Output file pattern. May use T for forecast date, L for location id, P for parameter id and I for timeseries id"
+    )
+
+    parser.add_argument(
         "--save",
         action="store_true",
         help="Save into database"
@@ -579,6 +668,14 @@ def parse_args():
         help="read only values before this date"
     )
 
+    parser.add_argument(
+        "--format",
+        choices=["json","csv"],
+        required=False,
+        default="json",
+        help="Output format: json, csv. Default: json"
+    )
+
     return parser.parse_args()
 
 if __name__ == "__main__":
@@ -608,9 +705,8 @@ if __name__ == "__main__":
             timeend = args.timeend
         )
         logging.info("Se leyeron %i series temporales" % (len(data)))
-        if args.output is not None:
-            with open(args.output, "w", encoding="utf-8") as f:
-                json.dump([d.to_dict(True) for d in data], f, indent=2)
+        Timeseries.to_file_many(data, args.output, args.file_pattern, format=args.format)
+
     elif args.action == "delete":
         logging.warning("No implementado")
     else:
