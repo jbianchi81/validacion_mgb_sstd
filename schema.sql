@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS timeseries  (
     location_id     TEXT NOT NULL REFERENCES locations(id) ON DELETE CASCADE,
     parameter_id    TEXT NOT NULL,
     qualifier_id    TEXT NOT NULL DEFAULT '', -- '' = observed
-    forecast_date   TIMESTAMPTZ,  -- NULL = observed
+    forecast_date   TIMESTAMPTZ NOT NULL DEFAULT '1900-01-01 00:00:00+00',  -- '1900-01-01 00:00:00+00' = observed
     timestep        INTERVAL,
     units            TEXT
 );

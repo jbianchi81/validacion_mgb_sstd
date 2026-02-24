@@ -9,12 +9,15 @@ from textwrap import dedent
 import argparse
 import pandas as pd
 import sys
+from collections.abc import Iterator
 from urllib.parse import urlencode
 
 # startForecastTime = "2026-01-27T00%3A00%3A00Z"
 # endForecastTime = "2026-01-28T00%3A00%3A00Z"
 documentFormat = "PI_JSON"
 config_path = "config/config.json"
+
+SENTINEL = datetime(1900, 1, 1, tzinfo=timezone.utc)
 
 config = loadConfig(config_path)
 
@@ -71,6 +74,12 @@ class GetTimeseriesResponse(TypedDict):
     version : str
     timeZone : str
     timeseries : List[TimeseriesResponse]
+
+class TimeseriesKey(TypedDict):
+    locationId : str
+    parameterId : str
+    qualifierId : str | None
+    forecastDate : datetime | None
 
 @dataclass
 class Location:
@@ -364,22 +373,23 @@ class Timeseries:
                         units=excluded.units 
                 RETURNING id
             """),
-            (self.locationId, self.parameterId, self.qualifierId if self.qualifierId is not None else "", self.forecastDate, self.timestep, self.units))
+            (self.locationId, self.parameterId, self.qualifierId if self.qualifierId is not None else "", self.forecastDate or SENTINEL, self.timestep, self.units))
         self.id = id
         return id
     
     @classmethod
     def read(
         cls,
-        locationId : str = None, 
-        parameterId : str = None, 
-        timestep : timedelta = None,
-        units : str = None,
-        qualifierId : str = None,
-        forecastDate : datetime = None,
-        id : int = None,
-        timestart : datetime = None,
-        timeend : datetime = None) -> List[Self]:
+        locationId : str | List[str] | None = None, 
+        parameterId : str | List[str] | None = None, 
+        timestep : timedelta | None = None,
+        units : str | None = None,
+        qualifierId : str | List[str] | None = None,
+        forecastDate : datetime | None = None,
+        id : int | None = None,
+        timestart : datetime | None = None,
+        timeend : datetime  | None = None,
+        metadata_only : bool = False) -> Iterator[Self]:
         
         conditions = []
         params = []
@@ -389,16 +399,16 @@ class Timeseries:
             params.append(id)
 
         if locationId is not None:
-            conditions.append("location_id = %s")
-            params.append(locationId)
+            conditions.append("location_id = ANY(%s)")
+            params.append([locationId] if type(locationId) == str else locationId)
 
         if parameterId is not None:
-            conditions.append("parameter_id = %s")
-            params.append(parameterId)
+            conditions.append("parameter_id = ANY(%s)")
+            params.append([parameterId] if type(parameterId) == str else parameterId)
 
         if qualifierId is not None:
-            conditions.append("qualifier_id = %s")
-            params.append(qualifierId)
+            conditions.append("qualifier_id = ANY(%s)")
+            params.append([qualifierId]  if type(qualifierId) == str else qualifierId)
 
         if forecastDate is not None:
             conditions.append("forecast_date = %s")
@@ -418,7 +428,6 @@ class Timeseries:
             sql += " WHERE " + " AND ".join(conditions)
 
         ts_list = execStmtFetchAll(config["user_dsn"], sql, params)
-        ts_obj_list = []
         for ts in ts_list:
             timeseries = cls(
                 locationId = ts["location_id"],
@@ -426,13 +435,13 @@ class Timeseries:
                 timestep = ts["timestep"],
                 units = ts["units"],
                 qualifierId = ts["qualifier_id"] if ts["qualifier_id"] != "" else None,
-                forecastDate = ts["forecast_date"],
+                forecastDate = ts["forecast_date"] if ts["forecast_date"] != SENTINEL else None,
                 id = ts["id"]
             )
             timeseries.read_location()
-            timeseries.read_values(timestart, timeend)
-            ts_obj_list.append(timeseries)
-        return ts_obj_list
+            if not metadata_only:
+                timeseries.read_values(timestart, timeend)
+            yield timeseries
 
     def read_location(self):
         self.location = Location.read_one(self.locationId)
@@ -445,7 +454,7 @@ class Timeseries:
     def to_dict(self, json_serializable : bool=False, include_id : bool = True):
         data = asdict(self)
         if json_serializable:
-            data["forecastDate"] = data["forecastDate"].isoformat()
+            data["forecastDate"] = data["forecastDate"].isoformat() if data["forecastDate"] is not None else None
             data["timestep"] = {"seconds": int(data["timestep"].total_seconds())}
             for value in data["values"]:
                 if not include_id:
@@ -468,6 +477,15 @@ class Timeseries:
             if not include_id:
                 df = df.drop(columns=["id"])
             df.to_csv(f, index=False)
+
+    def to_file(self, filename : str, include_id : bool = False, format : str = "json"):
+        if format == "json":
+            self.to_json(filename)
+        elif format == "csv":
+            self.to_csv(filename, include_id)
+        else:
+            raise ValueError("Invalid format: %s" % (format))
+        logging.info("Se escribió el archivo %s" % (filename))
     
     @classmethod
     def to_df_many(cls, ts_list : List[Self]) -> pd.DataFrame:
@@ -522,14 +540,138 @@ class Timeseries:
         else:
             raise ValueError("Falta filename o file_pattern")
 
+    @classmethod
+    def read_one(
+        cls,
+        locationId : str,
+        parameterId : str,
+        qualifierId : str = "",
+        forecastDate : datetime | None = None,
+        timestart : datetime | None = None,
+        timeend : datetime | None = None,
+        metadata_only : bool = False
+    ) -> Self:
+        ts = next(cls.read(
+            locationId=locationId,
+            parameterId=parameterId,
+            qualifierId=qualifierId,
+            forecastDate=forecastDate,
+            timestart=timestart,
+            timeend=timeend,
+            metadata_only=metadata_only
+        ), None)
+        if ts is None:
+            raise ValueError("Timeseries not found")
+        return ts
+
+    @classmethod
+    def read_paired(
+        cls,
+        obs_key : TimeseriesKey,
+        sim_key : TimeseriesKey,
+        timestart : datetime | None = None,
+        timeend : datetime | None = None,
+        obs_flag : str | None = None,
+        sim_flag : str | None = None
+    ) -> pd.DataFrame:
+        obs = cls.read_one(**obs_key, metadata_only=True)
+        sim = cls.read_one(**sim_key, metadata_only=True)
+        return read_paired(obs.id, sim.id, timestart, timeend, obs_flag, sim_flag)
+
+    @classmethod
+    def readlist(
+        cls,
+        **kwargs
+    ) -> List[Self]:
+        ts_list = []
+        for ts in Timeseries.read(
+            **kwargs
+        ):
+            ts_list.append(ts)
+        return ts_list
+
+    @classmethod
+    def read_to_file(      
+        cls,
+        filename : str | None = None, 
+        file_pattern : str | None = None, 
+        format : str = "json", 
+        include_id : bool = False,
+        **kwargs
+        # forecastDate :  = args.forecast_date,
+        # locationId = args.location_id,
+        # parameterId = args.parameter_id,
+        # timestart = args.timestart, 
+        # timeend = args.timeend,
+        # qualifierId = args.qualifier_id
+    ):
+        if filename is not None:
+            ts_list = cls.readlist(**kwargs)
+            logging.info("Se leyeron %i series temporales" % (len(ts_list)))
+            cls.to_file_many(ts_list, filename, format = format, include_id=include_id)
+        elif file_pattern is not None:
+            for ts in Timeseries.read(
+                **kwargs
+                # forecastDate = args.forecast_date,
+                # locationId = args.location_id,
+                # parameterId = args.parameter_id,
+                # timestart = args.timestart, 
+                # timeend = args.timeend,
+                # qualifierId = args.qualifier_id
+            ):
+                fname = ts.filename_from_pattern(file_pattern)
+                ts.to_file(fname, include_id, format=format)
+        else:
+            raise ValueError("Falta filename o file_pattern")  
+
+def read_paired(
+    obs_series_id : int, 
+    sim_series_id : int, 
+    timestart : datetime | None = None, 
+    timeend : datetime | None = None, 
+    obs_flag : int | None = None, 
+    sim_flag : int | None = None
+    ) -> pd.DataFrame:
+    sql = """
+        SELECT
+            o.time,
+            o.value AS obs,
+            s.value AS sim
+        FROM timeseries_values o
+        JOIN timeseries_values s
+            ON o.time = s.time
+        WHERE o.series_id = %s
+        AND s.series_id = %s
+        """
+    params = [obs_series_id, sim_series_id]
+    conditions = []
+    if timestart is not None:
+        conditions.append("o.time >= %s")
+        params.append(timestart)
+    if timeend is not None:
+        conditions.append("o.time < %s")
+        params.append(timeend)
+    if obs_flag is not None:
+        conditions.append("o.flag = %s")
+        params.append(obs_flag)
+    if sim_flag is not None:
+        conditions.append("s.flag = %s")
+        params.append(sim_flag)
+    if len(conditions):
+        sql += " WHERE " + " AND ".join(conditions)
+    sql += " ORDER BY o.time"
+
+    data = execStmtFetchAll(config["user_dsn"], sql, params)
+    return pd.DataFrame(data)
 
 def download_timeseries(
         fecha_pronostico : datetime | None = None,
         filterId : str | None = None,
-        locationId : str | None = None,
-        parameterId : str | None = None,
+        locationIds : str | List[str] | None = None,
+        parameterIds : str | List[str] | None = None,
         timestart : datetime | None = None,
-        timeend : datetime | None = None
+        timeend : datetime | None = None,
+        qualifierIds : str | List[str] | None = None
 ) -> GetTimeseriesResponse:
     # https://sstdfews.cicplata.org/FewsWebServices/rest/fewspiservice/v1/timeseries?filterId=Mod_Hydro_Output_Selected&startForecastTime=2026-01-27T00%3A00%3A00Z&endForecastTime=2026-01-28T00%3A00%3A00Z&documentFormat=PI_JSON
 
@@ -548,11 +690,12 @@ def download_timeseries(
             "filterId": filterId, 
             "startForecastTime": startForecastTime, 
             "endForecastTime": endForecastTime, 
-            "locationIds": locationId,
-            "parameterIds": parameterId,
+            "locationIds": locationIds,
+            "parameterIds": parameterIds,
             "documentFormat": documentFormat,
             "startTime": startTime,
-            "endTime": endTime
+            "endTime": endTime,
+            "qualifierIds": qualifierIds
         }
     # logging.debug(f"GET {url}?{urlencode(params)}")
     response = requests.get(
@@ -647,14 +790,24 @@ def parse_args():
         "--location-id",
         type=str,
         required=False,
-        help="read only timeseries of this location"
+        help="read only timeseries of this location(s)",
+        nargs="*"
     )
 
     parser.add_argument(
         "--parameter-id",
         type=str,
         required=False,
-        help="read only timeseries of this parameter"
+        help="read only timeseries of this parameter(s)",
+        nargs="*"
+    )
+
+    parser.add_argument(
+        "--qualifier-id",
+        type=str,
+        required=False,
+        help="read only timeseries of this qualifier(s)",
+        nargs="*"
     )
 
     parser.add_argument(
@@ -696,7 +849,7 @@ if __name__ == "__main__":
         else:
             if args.output is None and not args.save:
                 raise ValueError("Debe utilizar la opción --output y/o --save")
-            data = download_timeseries(args.forecast_date, args.filter_id, args.location_id, args.parameter_id, timestart, timeend)
+            data = download_timeseries(args.forecast_date, args.filter_id, args.location_id, args.parameter_id, timestart, timeend, args.qualifier_id)
             if args.output is not None:
                 with open(args.output, "w", encoding="utf-8") as f:
                     json.dump(data, f, indent=2)
@@ -707,18 +860,21 @@ if __name__ == "__main__":
                 Timeseries.from_api_response(data, True)
 
     elif args.action == "read":
-        data = Timeseries.read(
+        Timeseries.read_to_file(
+            filename = args.output, 
+            file_pattern = args.file_pattern, 
+            format=args.format,
             forecastDate = args.forecast_date,
             locationId = args.location_id,
             parameterId = args.parameter_id,
             timestart = timestart, 
-            timeend = timeend
+            timeend = timeend,
+            qualifierId = args.qualifier_id
         )
-        logging.info("Se leyeron %i series temporales" % (len(data)))
-        Timeseries.to_file_many(data, args.output, args.file_pattern, format=args.format)
 
     elif args.action == "delete":
         logging.warning("No implementado")
+
     else:
         raise ValueError("Argumento 'action' incorrecto. Valores válidos: %s" % (", ".join(ACTIONS)))
         
