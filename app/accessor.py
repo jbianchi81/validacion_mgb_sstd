@@ -9,6 +9,7 @@ from textwrap import dedent
 import argparse
 import pandas as pd
 import sys
+from urllib.parse import urlencode
 
 # startForecastTime = "2026-01-27T00%3A00%3A00Z"
 # endForecastTime = "2026-01-28T00%3A00%3A00Z"
@@ -18,7 +19,7 @@ config_path = "config/config.json"
 config = loadConfig(config_path)
 
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     handlers=[
         logging.StreamHandler(sys.stdout)
@@ -498,7 +499,7 @@ class Timeseries:
             with open(filename, "w", encoding="utf-8") as f:
                 if format == "csv":
                     df = cls.to_df_many(ts_list)
-                    if not include_id:
+                    if not include_id and "id" in df.columns:
                         df = df.drop(columns=["id"])    
                     df.to_csv(f, index=False)
                 elif format == "json":
@@ -527,8 +528,8 @@ def download_timeseries(
         filterId : str | None = None,
         locationId : str | None = None,
         parameterId : str | None = None,
-        timestart : str | None = None,
-        timeend : str | None = None
+        timestart : datetime | None = None,
+        timeend : datetime | None = None
 ) -> GetTimeseriesResponse:
     # https://sstdfews.cicplata.org/FewsWebServices/rest/fewspiservice/v1/timeseries?filterId=Mod_Hydro_Output_Selected&startForecastTime=2026-01-27T00%3A00%3A00Z&endForecastTime=2026-01-28T00%3A00%3A00Z&documentFormat=PI_JSON
 
@@ -543,18 +544,20 @@ def download_timeseries(
     startTime = "%sZ" % (timestart.isoformat(timespec='seconds')) if timestart is not None else None
     endTime = "%sZ" % (timeend.isoformat(timespec='seconds')) if timeend is not None else None
     url = "%s/timeseries" % (config["base_url"])
-    response = requests.get(
-        url, 
-        {
+    params = {
             "filterId": filterId, 
             "startForecastTime": startForecastTime, 
             "endForecastTime": endForecastTime, 
-            "locationId": locationId,
-            "parameterId": parameterId,
+            "locationIds": locationId,
+            "parameterIds": parameterId,
             "documentFormat": documentFormat,
             "startTime": startTime,
             "endTime": endTime
         }
+    # logging.debug(f"GET {url}?{urlencode(params)}")
+    response = requests.get(
+        url, 
+        params
     )
     if response.status_code >= 400:
         raise Exception("Falló la descarga: %s" % (response.text))
@@ -588,7 +591,7 @@ def parseDateTime(date : str, time : str, time_zone : float=None) -> datetime:
 #     values = TimeseriesValue.from_api_response(data, time_zone)
 #     return (location, timeseries, values)
 
-ACTIONS = ["create", "read", "delete"]
+ACTIONS = ["get", "read", "delete"]
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Forecast processor")
@@ -681,28 +684,35 @@ def parse_args():
 if __name__ == "__main__":
     args = parse_args()
 
-    if args.action == "create":
+    timestart = datetime.combine(args.timestart, datetime.min.time()) if args.timestart is not None else None
+    timeend = datetime.combine(args.timeend, datetime.min.time()) if args.timeend is not None else None
+
+
+    if args.action == "get":
         if args.input is not None:
             with open(args.input, "r", encoding="utf-8") as f:
                 data = json.load(f)
+            Timeseries.from_api_response(data, True)
         else:
-            data = download_timeseries(args.forecast_date, args.filter_id, args.location_id, args.parameter_id, args.timestart, args.timeend)
+            if args.output is None and not args.save:
+                raise ValueError("Debe utilizar la opción --output y/o --save")
+            data = download_timeseries(args.forecast_date, args.filter_id, args.location_id, args.parameter_id, timestart, timeend)
             if args.output is not None:
                 with open(args.output, "w", encoding="utf-8") as f:
                     json.dump(data, f, indent=2)
-        # else:
-        #     json.dump(data, sys.stdout, indent=2)
-        #     sys.stdout.write("\n")
-        if args.save:
-            Timeseries.from_api_response(data, True)
+            # else:
+            #     json.dump(data, sys.stdout, indent=2)
+            #     sys.stdout.write("\n")
+            if args.save:
+                Timeseries.from_api_response(data, True)
 
     elif args.action == "read":
         data = Timeseries.read(
             forecastDate = args.forecast_date,
             locationId = args.location_id,
             parameterId = args.parameter_id,
-            timestart = args.timestart, 
-            timeend = args.timeend
+            timestart = timestart, 
+            timeend = timeend
         )
         logging.info("Se leyeron %i series temporales" % (len(data)))
         Timeseries.to_file_many(data, args.output, args.file_pattern, format=args.format)
