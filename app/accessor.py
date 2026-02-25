@@ -648,22 +648,22 @@ def read_paired(
     ) -> pd.DataFrame:
     sql = """
         SELECT
-            o.time,
+            s.time,
             o.value AS obs,
             s.value AS sim
-        FROM timeseries_values o
-        JOIN timeseries_values s
+        FROM timeseries_values s
+        LEFT OUTER JOIN timeseries_values o
             ON o.time = s.time
-        WHERE o.series_id = %s
-        AND s.series_id = %s
+            AND o.series_id = %s
+        WHERE s.series_id = %s
         """
     params = [obs_series_id, sim_series_id]
     conditions = []
     if timestart is not None:
-        conditions.append("o.time >= %s")
+        conditions.append("s.time >= %s")
         params.append(timestart)
     if timeend is not None:
-        conditions.append("o.time < %s")
+        conditions.append("s.time < %s")
         params.append(timeend)
     if obs_flag is not None:
         conditions.append("o.flag = %s")
@@ -673,7 +673,7 @@ def read_paired(
         params.append(sim_flag)
     if len(conditions):
         sql += " WHERE " + " AND ".join(conditions)
-    sql += " ORDER BY o.time"
+    sql += " ORDER BY s.time"
 
     data = execStmtFetchAll(config["user_dsn"], sql, params)
     return pd.DataFrame(data)
