@@ -1,6 +1,7 @@
+from __future__ import annotations
 from datetime import datetime, timedelta, timezone, date
 import requests
-from typing import TypedDict, List, Tuple, Optional, Union
+from typing import TypedDict, List, Tuple, Optional, Union, Iterator
 from typing_extensions import Self
 import json
 from dataclasses import dataclass, asdict
@@ -10,7 +11,7 @@ from textwrap import dedent
 import argparse
 import pandas as pd
 import sys
-from collections.abc import Iterator
+# from collections.abc import Iterator
 from urllib.parse import urlencode
 
 # startForecastTime = "2026-01-27T00%3A00%3A00Z"
