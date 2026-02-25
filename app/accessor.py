@@ -160,20 +160,22 @@ class TimeseriesValue:
     id : Optional[int] = None
 
     @classmethod
-    def parse_one(cls, event : Event, time_zone : float=0.0):
+    def parse_one(cls, event : Event, time_zone : float=0.0, null_value : Optional[float] = None):
     # def parseValue(event : Event, time_zone : float=0.0) -> TimeseriesValue:
+        value = float(event["value"])
+        value = None if null_value is not None and value == null_value else value
         return cls(
             time = parseDateTime(event["date"], event["time"], time_zone),
-            value = float(event["value"]),
+            value = value,
             flag = int(event["flag"])
         )
 
     @classmethod
-    def from_api_response(cls, data : TimeseriesResponse, time_zone : float=0.0):
+    def from_api_response(cls, data : TimeseriesResponse, time_zone : float=0.0, null_value : Optional[float]=None):
     # def parseValues(data : TimeseriesResponse, time_zone : float=0.0) -> List[TimeseriesValue]:
         if "events" not in data:
             raise ValueError("No se encontraron timeseries. Falta 'events' en la respuesta de /timeseries.")
-        return [ cls.parse_one(event, time_zone) for event in data["events"] ]
+        return [ cls.parse_one(event, time_zone, null_value) for event in data["events"] ]
 
     def to_row(self):
         return (self.timeseries_id, self.time, self.value, self.flag, self.comment)
@@ -208,6 +210,8 @@ class TimeseriesValue:
         """
         rows = []
         for v in values:
+            if v.value is None:
+                continue
             v.timeseries_id = timeseries_id
             rows.append(v.to_row())
         return execStmtMany(
@@ -217,6 +221,8 @@ class TimeseriesValue:
         )
         
     def create(self) -> str:
+        if self.value is None:
+            raise ValueError("Can't create: value is None")
         id = execStmt(
             config["user_dsn"],
             dedent(self.create_stmt),
@@ -343,7 +349,7 @@ class Timeseries:
             timestep = parseTimestep(data["header"]["timeStep"]),
             units = data["header"]["units"],
             location = Location.from_api_response(data),
-            values = TimeseriesValue.from_api_response(data, time_zone)
+            values = TimeseriesValue.from_api_response(data, time_zone, float(data["header"]["missVal"]) if "missVal" in data["header"] else None)
         )
     
     @classmethod
