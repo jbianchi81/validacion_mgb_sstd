@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta, timezone, date
 import requests
-from typing import TypedDict, List, Tuple, Optional
+from typing import TypedDict, List, Tuple, Optional, Union
 from typing_extensions import Self
 import json
 from dataclasses import dataclass, asdict
@@ -79,8 +79,8 @@ class GetTimeseriesResponse(TypedDict):
 class TimeseriesKey(TypedDict):
     locationId : str
     parameterId : str
-    qualifierId : str | None
-    forecastDate : datetime | None
+    qualifierId : Optional[str]
+    forecastDate : Optional[datetime]
 
 @dataclass
 class Location:
@@ -381,15 +381,15 @@ class Timeseries:
     @classmethod
     def read(
         cls,
-        locationId : str | List[str] | None = None, 
-        parameterId : str | List[str] | None = None, 
-        timestep : timedelta | None = None,
-        units : str | None = None,
-        qualifierId : str | List[str] | None = None,
-        forecastDate : datetime | None = None,
-        id : int | None = None,
-        timestart : datetime | None = None,
-        timeend : datetime  | None = None,
+        locationId : Union[str,List[str],None] = None, 
+        parameterId : Union[str,List[str],None] = None, 
+        timestep : Optional[timedelta] = None,
+        units : Optional[str] = None,
+        qualifierId : Union[str,List[str],None] = None,
+        forecastDate : Optional[datetime] = None,
+        id : Optional[int] = None,
+        timestart : Optional[datetime] = None,
+        timeend : Optional[datetime] = None,
         metadata_only : bool = False) -> Iterator[Self]:
         
         conditions = []
@@ -513,7 +513,13 @@ class Timeseries:
         return filename
         
     @classmethod
-    def to_file_many(cls, ts_list : List[Self], filename : str | None = None, file_pattern : str | None = None, format : str = "json", include_id : bool = False):
+    def to_file_many(
+        cls, 
+        ts_list : List[Self], 
+        filename : Optional[str] = None, 
+        file_pattern : Optional[str] = None, 
+        format : str = "json", 
+        include_id : bool = False):
         if filename is not None:
             with open(filename, "w", encoding="utf-8") as f:
                 if format == "csv":
@@ -547,9 +553,9 @@ class Timeseries:
         locationId : str,
         parameterId : str,
         qualifierId : str = "",
-        forecastDate : datetime | None = None,
-        timestart : datetime | None = None,
-        timeend : datetime | None = None,
+        forecastDate : Optional[datetime] = None,
+        timestart : Optional[datetime] = None,
+        timeend : Optional[datetime] = None,
         metadata_only : bool = False
     ) -> Self:
         ts = next(cls.read(
@@ -570,10 +576,10 @@ class Timeseries:
         cls,
         obs_key : TimeseriesKey,
         sim_key : TimeseriesKey,
-        timestart : datetime | None = None,
-        timeend : datetime | None = None,
-        obs_flag : str | None = None,
-        sim_flag : str | None = None
+        timestart : Optional[datetime] = None,
+        timeend : Optional[datetime] = None,
+        obs_flag : Optional[str] = None,
+        sim_flag : Optional[str] = None
     ) -> pd.DataFrame:
         obs = cls.read_one(**obs_key, metadata_only=True)
         sim = cls.read_one(**sim_key, metadata_only=True)
@@ -594,8 +600,8 @@ class Timeseries:
     @classmethod
     def read_to_file(      
         cls,
-        filename : str | None = None, 
-        file_pattern : str | None = None, 
+        filename : Optional[str] = None, 
+        file_pattern : Optional[str] = None, 
         format : str = "json", 
         include_id : bool = False,
         **kwargs
@@ -628,10 +634,10 @@ class Timeseries:
 def read_paired(
     obs_series_id : int, 
     sim_series_id : int, 
-    timestart : datetime | None = None, 
-    timeend : datetime | None = None, 
-    obs_flag : int | None = None, 
-    sim_flag : int | None = None
+    timestart : Optional[datetime] = None, 
+    timeend : Optional[datetime] = None, 
+    obs_flag : Optional[int] = None, 
+    sim_flag : Optional[int] = None
     ) -> pd.DataFrame:
     sql = """
         SELECT
@@ -666,13 +672,13 @@ def read_paired(
     return pd.DataFrame(data)
 
 def download_timeseries(
-        fecha_pronostico : datetime | None = None,
-        filterId : str | None = None,
-        locationIds : str | List[str] | None = None,
-        parameterIds : str | List[str] | None = None,
-        timestart : datetime | None = None,
-        timeend : datetime | None = None,
-        qualifierIds : str | List[str] | None = None
+        fecha_pronostico : Optional[datetime] = None,
+        filterId : Optional[str] = None,
+        locationIds : Union[str,List[str],None] = None,
+        parameterIds : Union[str,List[str],None] = None,
+        timestart : Optional[datetime] = None,
+        timeend : Optional[datetime] = None,
+        qualifierIds : Union[str,List[str],None] = None
 ) -> GetTimeseriesResponse:
     # https://sstdfews.cicplata.org/FewsWebServices/rest/fewspiservice/v1/timeseries?filterId=Mod_Hydro_Output_Selected&startForecastTime=2026-01-27T00%3A00%3A00Z&endForecastTime=2026-01-28T00%3A00%3A00Z&documentFormat=PI_JSON
 
