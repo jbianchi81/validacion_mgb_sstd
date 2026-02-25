@@ -697,7 +697,7 @@ def download_timeseries(
             "endTime": endTime,
             "qualifierIds": qualifierIds
         }
-    # logging.debug(f"GET {url}?{urlencode(params)}")
+    # logging.debug(f'GET {url}?{urlencode(params)}')
     response = requests.get(
         url, 
         params
@@ -719,7 +719,7 @@ def parseTimestep(ts : TimeStep) -> timedelta:
 
 def parseDateTime(date : str, time : str, time_zone : float=None) -> datetime:
     dt = datetime.strptime(
-        f"{date} {time}",
+        f'{date} {time}',
         "%Y-%m-%d %H:%M:%S"
     )
     if time_zone is not None:

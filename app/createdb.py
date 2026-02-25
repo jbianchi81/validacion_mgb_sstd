@@ -24,12 +24,12 @@ def createDb():
                     sql.SQL("CREATE DATABASE {}")
                     .format(sql.Identifier(config["db_name"]))
                 )
-                logger.info(f"Database {config["db_name"]} creada")
+                logger.info(f'Database {config["db_name"]} creada')
             else:
-                logger.info(f"Database {config["db_name"]} ya existe")
+                logger.info(f'Database {config["db_name"]} ya existe')
 
 def createTables():
-    # DB_DSN = f"dbname={config["db_name"]} user={config["database"]["user"]} password={config["database"]["password"]} host={config["database"]["host"]} port={config["database"]["port"]}"
+    # DB_DSN = f'dbname={config["db_name"]} user={config["database"]["user"]} password={config["database"]["password"]} host={config["database"]["host"]} port={config["database"]["port"]}'
 
     with psycopg.connect(config["user_dsn"]) as conn:
         with conn.cursor() as cur:
