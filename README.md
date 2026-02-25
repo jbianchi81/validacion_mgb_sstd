@@ -21,43 +21,55 @@ python -m app.createdb
 ### Accessor
 ```
 python -m app.accessor --help
-usage: accessor.py [-h] [--forecast-date FORECAST_DATE] [--filter-id FILTER_ID] [--output OUTPUT]
-                   [--file-pattern FILE_PATTERN] [--save] [--input INPUT]
-                   [--location-id LOCATION_ID] [--parameter-id PARAMETER_ID] [--timestart TIMESTART]
-                   [--timeend TIMEEND] [--format {json,csv}]
+usage: accessor.py [-h] [--forecast-date FORECAST_DATE] [--filter-id FILTER_ID] [--output OUTPUT] [--file-pattern FILE_PATTERN] [--save]
+                   [--input INPUT] [--location-id [LOCATION_ID ...]] [--parameter-id [PARAMETER_ID ...]]
+                   [--qualifier-id [QUALIFIER_ID ...]] [--timestart TIMESTART] [--timeend TIMEEND] [--format {json,csv}]
                    {get,read,delete}
 
 Forecast processor
 
 positional arguments:
-  {get,read,delete}  Action to perform
+  {get,read,delete}     Action to perform
 
 options:
   -h, --help            show this help message and exit
   --forecast-date FORECAST_DATE
-                        Forecast date in YYYY-MM-DD format
+                        Forecast date in YYYY-MM-DD format. If not set, with 'get' last forecast is retrieved, with 'read'/'delete' all
+                        forecasts are read/deleted.
   --filter-id FILTER_ID
                         Optional filter ID
   --output OUTPUT       Output file
   --file-pattern FILE_PATTERN
-                        Output file pattern. May use T for forecast date, L for location id, P for
-                        parameter id and I for timeseries id
+                        Output file pattern. May use T for forecast date, L for location id, P for parameter id and I for timeseries id
   --save                Save into database
-  --input INPUT         Input file. If not set, downloads from API source using --forecast-date and
-                        --filter-id
-  --location-id LOCATION_ID
-                        read only timeseries of this location
-  --parameter-id PARAMETER_ID
-                        read only timeseries of this parameter
+  --input INPUT         Input file. If not set, downloads from API source using --forecast-date and --filter-id
+  --location-id [LOCATION_ID ...]
+                        read only timeseries of this location(s)
+  --parameter-id [PARAMETER_ID ...]
+                        read only timeseries of this parameter(s)
+  --qualifier-id [QUALIFIER_ID ...]
+                        read only timeseries of this qualifier(s)
   --timestart TIMESTART
-                        read only values starting from this date
-  --timeend TIMEEND     read only values before this date
+                        read only values starting from this date. If no timestart and timeend are specified, with 'get' the requested
+                        period will be set to the current time minus one day and one hour ago until the current time plus one day and
+                        one hour. If only the timestsart is specified, the requested period will be set to the timestart until the
+                        timestart time plus one day and one hour. If only the timeend is specified, the requested period will be set to
+                        the timeend minus one day and one hour until the timeend.With 'read'/'delete' all dates with be read/deleted
+  --timeend TIMEEND     read only values before this date. If no timestart and timeend are specified, with 'get' the requested period
+                        will be set to the current time minus one day and one hour ago until the current time plus one day and one hour.
+                        If only the timestsart is specified, the requested period will be set to the timestart until the timestart time
+                        plus one day and one hour. If only the timeend is specified, the requested period will be set to the timeend
+                        minus one day and one hour until the timeend.With 'read'/'delete' all dates with be read/deleted
   --format {json,csv}   Output format: json, csv. Default: json
 ```
 #### Ejemplos
-Descargar última corrida del MGB para las estaciones seleccionadas en el filtro por defecto (Mod_Hydro_Output_Selected). Guardar en la base de datos y en data/mgb.json 
+Descargar corrida del MGB de la fecha 2026-02-24 para las estaciones seleccionadas en el filtro por defecto (Mod_Hydro_Output_Selected). Guardar en la base de datos y en data/mgb.json 
 ```bash
-python -m app.accessor get --output data/mgb.json --save
+python -m app.accessor get --forecast-date 2026-02-24 --output data/mgb.json --save
+```
+Descargar última corrida del MGB para la estación 1002 del filtro Mod_Hydro_Output_All entre las fechas 2026-02-24 y 2026-03-02. Guardar en data/mgb_1002.json 
+```bash
+python -m app.accessor get --filter-id Mod_Hydro_Output_All --location-id 1002 --timestart 2026-02-24 --timeend 2026-03-02 --output data/mgb_1002.json
 ```
 Descargar serie de caudal observado (Q.obs) de la estación Corrientes (ID=AR_INA_19_INA_24_Q) entre las fechas 2025-02-01 y 2026-02-25. Guarda en base de datos y en data/corr.json
 ```bash

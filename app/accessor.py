@@ -683,14 +683,14 @@ def download_timeseries(
 ) -> GetTimeseriesResponse:
     # https://sstdfews.cicplata.org/FewsWebServices/rest/fewspiservice/v1/timeseries?filterId=Mod_Hydro_Output_Selected&startForecastTime=2026-01-27T00%3A00%3A00Z&endForecastTime=2026-01-28T00%3A00%3A00Z&documentFormat=PI_JSON
 
-    if fecha_pronostico is None:
-        fecha_pronostico = datetime.now()
+    # if fecha_pronostico is None:
+    #     fecha_pronostico = datetime.now()
     if filterId is None:
         filterId = config["default_filterId"] if "default_filterId" in config else None
-    inicio = datetime(fecha_pronostico.year, fecha_pronostico.month, fecha_pronostico.day)
-    fin = inicio + timedelta(days=1)
-    startForecastTime = "%sZ" % (inicio.isoformat(timespec='seconds'))
-    endForecastTime =  "%sZ" % (fin.isoformat(timespec='seconds'))
+    inicio = datetime(fecha_pronostico.year, fecha_pronostico.month, fecha_pronostico.day) if fecha_pronostico is not None else None
+    fin = inicio + timedelta(days=1) if inicio is not None else None
+    startForecastTime = "%sZ" % (inicio.isoformat(timespec='seconds')) if inicio is not None else None
+    endForecastTime =  "%sZ" % (fin.isoformat(timespec='seconds')) if fin is not None else None
     startTime = "%sZ" % (timestart.isoformat(timespec='seconds')) if timestart is not None else None
     endTime = "%sZ" % (timeend.isoformat(timespec='seconds')) if timeend is not None else None
     url = "%s/timeseries" % (config["base_url"])
@@ -757,7 +757,7 @@ def parse_args():
         "--forecast-date",
         type=date.fromisoformat,   # expects YYYY-MM-DD
         required=False,
-        help="Forecast date in YYYY-MM-DD format"
+        help="Forecast date in YYYY-MM-DD format. If not set, with 'get' last forecast is retrieved, with 'read'/'delete' all forecasts are read/deleted."
     )
 
     parser.add_argument(
@@ -822,14 +822,14 @@ def parse_args():
         "--timestart",
         type=date.fromisoformat,   # expects YYYY-MM-DD
         required=False,
-        help="read only values starting from this date"
+        help="read only values starting from this date. If no timestart and timeend are specified, with 'get' the requested period will be set to the current time minus one day and one hour ago until the current time plus one day and one hour. If only the timestsart is specified, the requested period will be set to the timestart until the timestart time plus one day and one hour. If only the timeend is specified, the requested period will be set to the timeend minus one day and one hour until the timeend.With 'read'/'delete' all dates with be read/deleted"
     )
 
     parser.add_argument(
         "--timeend",
         type=date.fromisoformat,   # expects YYYY-MM-DD
         required=False,
-        help="read only values before this date"
+        help="read only values before this date. If no timestart and timeend are specified, with 'get' the requested period will be set to the current time minus one day and one hour ago until the current time plus one day and one hour. If only the timestsart is specified, the requested period will be set to the timestart until the timestart time plus one day and one hour. If only the timeend is specified, the requested period will be set to the timeend minus one day and one hour until the timeend.With 'read'/'delete' all dates with be read/deleted"
     )
 
     parser.add_argument(
