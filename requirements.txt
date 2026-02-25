@@ -1,3 +1,4 @@
 requests
 psycopg
 pandas
+typing_extensions

@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta, timezone, date
 import requests
-from typing import TypedDict, List, Self, Tuple, Optional
+from typing import TypedDict, List, Tuple, Optional
+from typing_extensions import Self
 import json
 from dataclasses import dataclass, asdict
 import logging
@@ -170,7 +171,7 @@ class TimeseriesValue:
     def from_api_response(cls, data : TimeseriesResponse, time_zone : float=0.0):
     # def parseValues(data : TimeseriesResponse, time_zone : float=0.0) -> List[TimeseriesValue]:
         if "events" not in data:
-            raise ValueError("Falta 'events'")
+            raise ValueError("No se encontraron timeseries. Falta 'events' en la respuesta de /timeseries.")
         return [ cls.parse_one(event, time_zone) for event in data["events"] ]
 
     def to_row(self):
