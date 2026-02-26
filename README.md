@@ -79,5 +79,11 @@ Leer serie guardada en base de datos y escribir en archivo CSV
 ```bash
 python -m app.accessor read --location-id AR_INA_19_INA_24_Q --parameter-id Q.obs --timestart 2025-02-01 --timeend 2026-02-25 --output data/corr.csv --format csv
 ```
+### Scripts
+#### scripts/pair_up_obs_sim.py
+Importa simulado y observado de estaciones en 'mapping_file' y guarda emparejado en .csv (1 archivo por estación)
+```bash
+python -m scripts.pair_up_obs_sim
+```
 ## Créditos
 Instituto Nacional del Agua - Argentina - 2026
