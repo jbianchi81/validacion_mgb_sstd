@@ -22,6 +22,9 @@ def parse_datetime_utc(value: str):
 ## default forecast date
 fd = (datetime.now() - timedelta(hours=13)).replace(hour=0, minute=0, second=0, microsecond=0)
 
+## default output_dir root
+output_dir_root = "data/paired"
+
 ### DEFAULT PARAMS
 default_params = {
 "forecast_date": fd,
@@ -32,7 +35,7 @@ default_params = {
 "obs_filterId":  "Tablero_Hydro",
 "import_obs":  True,
 "import_sim": True,
-"output_dir": "data/paired"
+"output_dir": None
 }
 ###
 
@@ -109,19 +112,35 @@ if __name__ == "__main__":
 
     # --- FLAGS ---
 
-    parser.add_argument(
-        "--import-obs",
-        action=argparse.BooleanOptionalAction,
-        default=default_params["import_obs"],
-        help="Enable/disable observation import",
-    )
+    # parser.add_argument(
+    #     "--import-obs",
+    #     action=argparse.BooleanOptionalAction,
+    #     default=default_params["import_obs"],
+    #     help="Enable/disable observation import",
+    # )
 
     parser.add_argument(
-        "--import-sim",
-        action=argparse.BooleanOptionalAction,
-        default=default_params["import_sim"],
-        help="Enable/disable simulation import",
+        "-o", "--import-obs",
+        action="store_false",
+        help="Disable observation import",
+        default=default_params["import_obs"]
     )
+    # parser.set_defaults(import_obs=default_params["import_obs"])
+
+    # parser.add_argument(
+    #     "--import-sim",
+    #     action=argparse.BooleanOptionalAction,
+    #     default=default_params["import_sim"],
+    #     help="Enable/disable simulation import",
+    # )
+
+    parser.add_argument(
+        "-s", "--import-sim",
+        action="store_false",
+        help="Disable simulation import",
+        default=default_params["import_sim"]
+    )
+    # parser.set_defaults(import_sim=default_params["import_sim"])
 
     # --- OUTPUT ---
 
@@ -131,6 +150,8 @@ if __name__ == "__main__":
     )
 
     args = parser.parse_args()
+
+    args.output_dir = args.output_dir if args.output_dir is not None else "%s/%04d-%02d-%02d" % (output_dir_root, args.forecast_date.year, args.forecast_date.month, args.forecast_date.day)
 
     print(args)
 
