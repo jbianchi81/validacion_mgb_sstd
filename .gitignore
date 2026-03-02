@@ -4,3 +4,4 @@ app/__pycache__
 .vscode
 app/__init__.pyc
 tests/__pycache__
+scripts/__pycache__
