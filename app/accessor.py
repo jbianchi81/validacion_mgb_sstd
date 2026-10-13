@@ -588,8 +588,12 @@ class Timeseries:
         obs_flag : Optional[str] = None,
         sim_flag : Optional[str] = None
     ) -> pd.DataFrame:
-        obs = cls.read_one(**obs_key, metadata_only=True)
         sim = cls.read_one(**sim_key, metadata_only=True)
+        try:
+            obs = cls.read_one(**obs_key, metadata_only=True)
+        except ValueError as e:
+            sim = cls.read_one(**sim_key, metadata_only=True)
+            return read_paired(-99999, sim.id, timestart, timeend, obs_flag, sim_flag)
         return read_paired(obs.id, sim.id, timestart, timeend, obs_flag, sim_flag)
 
     @classmethod

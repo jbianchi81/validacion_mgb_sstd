@@ -55,6 +55,10 @@ def run(args):
             if args.import_obs:
                 data = download_timeseries(filterId=args.obs_filterId, locationIds = [row["obs"]], parameterIds=["Q.obs"], timestart= args.timestart, timeend= args.timeend)
                 ts = Timeseries.from_api_response(data, save=True)
+        except Exception as e:
+            print("download_timeseries locationId: %s parameterId: Q.obs: %s" % (row["obs"], str(e)))
+        
+        try:
             df_paired = Timeseries.read_paired(
                 {"locationId": row["obs"], "parameterId": "Q.obs"},
                 {"locationId": str(row["sim"]), "parameterId": "Q.sim", "forecastDate": args.forecast_date}
