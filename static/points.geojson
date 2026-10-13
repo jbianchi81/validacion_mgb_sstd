@@ -1,0 +1,3107 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.00136847422059,
+          -34.4327621342661
+        ]
+      },
+      "properties": {
+        "name": "Areco - Carmen de Areco",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "204",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.204",
+        "lat": "-34.4327621342661",
+        "lon": "-60.00136847422059",
+        "x": "-60.00136847422059",
+        "y": "-34.4327621342661",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.17242055936343,
+          -14.784302117295148
+        ]
+      },
+      "properties": {
+        "name": "BARRA DO BUGRES",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "1845",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "BARRA DO BUGRES - MiniBacia.MGB.1845",
+        "lat": "-14.784302117295148",
+        "lon": "-57.17242055936343",
+        "x": "-57.17242055936343",
+        "y": "-14.784302117295148",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.496889578067105,
+          -34.284397317345125
+        ]
+      },
+      "properties": {
+        "name": "R\u00edo Areco - San Antonio de Are",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "2196",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.2196",
+        "lat": "-34.284397317345125",
+        "lon": "-59.496889578067105",
+        "x": "-59.496889578067105",
+        "y": "-34.284397317345125",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.43102211421234,
+          -30.445877593924727
+        ]
+      },
+      "properties": {
+        "name": "QUARA\u00cd",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "2807",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "QUARAI - MiniBacia.MGB.2807",
+        "lat": "-30.445877593924727",
+        "lon": "-56.43102211421234",
+        "x": "-56.43102211421234",
+        "y": "-30.445877593924727",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.78046694382695,
+          -29.77522049900132
+        ]
+      },
+      "properties": {
+        "name": "ALEGRETE",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "3149",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "ALEGRETE - MiniBacia.MGB.3149",
+        "lat": "-29.77522049900132",
+        "lon": "-55.78046694382695",
+        "x": "-55.78046694382695",
+        "y": "-29.77522049900132",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.6619344795092,
+          -29.829870523038334
+        ]
+      },
+      "properties": {
+        "name": "Miri\u00f1ay R\u00edo",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "3574",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.3574",
+        "lat": "-29.829870523038334",
+        "lon": "-57.6619344795092",
+        "x": "-57.6619344795092",
+        "y": "-29.829870523038334",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.66974790456413,
+          -33.656764743181654
+        ]
+      },
+      "properties": {
+        "name": "San Pedro",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "3853",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "San Pedro - MiniBacia.MGB.3853",
+        "lat": "-33.656764743181654",
+        "lon": "-59.66974790456413",
+        "x": "-59.66974790456413",
+        "y": "-33.656764743181654",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.12051760684985,
+          -31.89970426472235
+        ]
+      },
+      "properties": {
+        "name": "Gualeguay - Villaguay",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "3924",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.3924",
+        "lat": "-31.89970426472235",
+        "lon": "-59.12051760684985",
+        "x": "-59.12051760684985",
+        "y": "-31.89970426472235",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.25543694654121,
+          -32.281834682069544
+        ]
+      },
+      "properties": {
+        "name": "Gualeguay - Rosario del Tala",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "4354",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.4354",
+        "lat": "-32.281834682069544",
+        "lon": "-59.25543694654121",
+        "x": "-59.25543694654121",
+        "y": "-32.281834682069544",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -53.044090731570314,
+          -26.865470209482215
+        ]
+      },
+      "properties": {
+        "name": "BARRA DO CHAPEC\u00d3 AUX.",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "4516",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "BARRA DO CHAPECO AUX. - MiniBacia.MGB.4516",
+        "lat": "-26.865470209482215",
+        "lon": "-53.044090731570314",
+        "x": "-53.044090731570314",
+        "y": "-26.865470209482215",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.35788009563495,
+          -20.287362351274524
+        ]
+      },
+      "properties": {
+        "name": "MIRANDA",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "4552",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "MIRANDA - MiniBacia.MGB.4552",
+        "lat": "-20.287362351274524",
+        "lon": "-56.35788009563495",
+        "x": "-56.35788009563495",
+        "y": "-20.287362351274524",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.6807578017785,
+          -16.065128306568038
+        ]
+      },
+      "properties": {
+        "name": "C\u00c1CERES (DNPVN)",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "4721",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "CACERES (DNPVN) - MiniBacia.MGB.4721",
+        "lat": "-16.065128306568038",
+        "lon": "-57.6807578017785",
+        "x": "-57.6807578017785",
+        "y": "-16.065128306568038",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.33658742380934,
+          -29.521252999555013
+        ]
+      },
+      "properties": {
+        "name": "MANOEL VIANA",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "4738",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "MANOEL VIANA - MiniBacia.MGB.4738",
+        "lat": "-29.521252999555013",
+        "lon": "-55.33658742380934",
+        "x": "-55.33658742380934",
+        "y": "-29.521252999555013",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5718166267523,
+          -29.008229173379455
+        ]
+      },
+      "properties": {
+        "name": "Corriente - Paso Lucero",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "4751",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.4751",
+        "lat": "-29.008229173379455",
+        "lon": "-58.5718166267523",
+        "x": "-58.5718166267523",
+        "y": "-29.008229173379455",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.23571941995992,
+          -23.081103463895772
+        ]
+      },
+      "properties": {
+        "name": "Rio Bermejo en Pozo Sarmiento",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "4834",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Rio Bermejo en Pozo Sarmiento - MiniBacia.MGB.4834",
+        "lat": "-23.081103463895772",
+        "lon": "-64.23571941995992",
+        "x": "-64.23571941995992",
+        "y": "-23.081103463895772",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.04827097996027,
+          -28.104891816252806
+        ]
+      },
+      "properties": {
+        "name": "UHE PASSO S\u00c3O JO\u00c3O JUSANTE",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "4939",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.4939",
+        "lat": "-28.104891816252806",
+        "lon": "-55.04827097996027",
+        "x": "-55.04827097996027",
+        "y": "-28.104891816252806",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.15301759803306,
+          -29.685814819090883
+        ]
+      },
+      "properties": {
+        "name": "Corrientes - Los Laureles",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5209",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.5209",
+        "lat": "-29.685814819090883",
+        "lon": "-59.15301759803306",
+        "x": "-59.15301759803306",
+        "y": "-29.685814819090883",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -51.65993638067991,
+          -25.96321880765291
+        ]
+      },
+      "properties": {
+        "name": "UHE GOV. BENTO MUNHOZ BARRAMENTO",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5290",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.5290",
+        "lat": "-25.96321880765291",
+        "lon": "-51.65993638067991",
+        "x": "-51.65993638067991",
+        "y": "-25.96321880765291",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -51.76387008149441,
+          -27.491381477807778
+        ]
+      },
+      "properties": {
+        "name": "UHE MACHADINHO BARRAMENTO",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5323",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.5323",
+        "lat": "-27.491381477807778",
+        "lon": "-51.76387008149441",
+        "x": "-51.76387008149441",
+        "y": "-27.491381477807778",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.962017510092174,
+          -32.68953394423612
+        ]
+      },
+      "properties": {
+        "name": "Carcara\u00f1\u00e1 - Pueblo Andino",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5452",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.5452",
+        "lat": "-32.68953394423612",
+        "lon": "-60.962017510092174",
+        "x": "-60.962017510092174",
+        "y": "-32.68953394423612",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -52.119041391853045,
+          -25.772135242498106
+        ]
+      },
+      "properties": {
+        "name": "UHE GOV. NEY AMINTHAS BARRAMENTO",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5509",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.5509",
+        "lat": "-25.772135242498106",
+        "lon": "-52.119041391853045",
+        "x": "-52.119041391853045",
+        "y": "-25.772135242498106",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -51.32950962100141,
+          -22.63648088315076
+        ]
+      },
+      "properties": {
+        "name": "UHE CAPIVARA BARRAMENTO",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5556",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.5556",
+        "lat": "-22.63648088315076",
+        "lon": "-51.32950962100141",
+        "x": "-51.32950962100141",
+        "y": "-22.63648088315076",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -52.25804706018117,
+          -27.219621563926328
+        ]
+      },
+      "properties": {
+        "name": "UHE IT\u00c1\ufffd BARRAMENTO",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5621",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.5621",
+        "lat": "-27.219621563926328",
+        "lon": "-52.25804706018117",
+        "x": "-52.25804706018117",
+        "y": "-27.219621563926328",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -52.53091564669277,
+          -25.483139696501137
+        ]
+      },
+      "properties": {
+        "name": "UHE SALTO SANTIAGO BARRAMENTO",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5631",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.5631",
+        "lat": "-25.483139696501137",
+        "lon": "-52.53091564669277",
+        "x": "-52.53091564669277",
+        "y": "-25.483139696501137",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.73739476017989,
+          -21.245493668682915
+        ]
+      },
+      "properties": {
+        "name": "UHE PROMISS\u00c3O BARRAMENTO",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5740",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.5740",
+        "lat": "-21.245493668682915",
+        "lon": "-49.73739476017989",
+        "x": "-49.73739476017989",
+        "y": "-21.245493668682915",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -52.96035842884349,
+          -27.118945237008685
+        ]
+      },
+      "properties": {
+        "name": "UHE FOZ DO CHAPEC\u00d3 BARRAMENTO",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5760",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.5760",
+        "lat": "-27.118945237008685",
+        "lon": "-52.96035842884349",
+        "x": "-52.96035842884349",
+        "y": "-27.118945237008685",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -52.78710872940228,
+          -22.72820242392453
+        ]
+      },
+      "properties": {
+        "name": "UHE ROSANA BARRAMENTO",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5780",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.5780",
+        "lat": "-22.72820242392453",
+        "lon": "-52.78710872940228",
+        "x": "-52.78710872940228",
+        "y": "-22.72820242392453",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -53.411924306545934,
+          -25.76955326672703
+        ]
+      },
+      "properties": {
+        "name": "UHE GOV. JOS\u00c9 RICHA BARRAMENTO",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5795",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.5795",
+        "lat": "-25.76955326672703",
+        "lon": "-53.411924306545934",
+        "x": "-53.411924306545934",
+        "y": "-25.76955326672703",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -53.111409799079794,
+          -27.308150460229143
+        ]
+      },
+      "properties": {
+        "name": "IRA\u00cd",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5798",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.5798",
+        "lat": "-27.308150460229143",
+        "lon": "-53.111409799079794",
+        "x": "-53.111409799079794",
+        "y": "-27.308150460229143",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -53.64860013682418,
+          -25.333053555575745
+        ]
+      },
+      "properties": {
+        "name": "UHE BAIXO IGUA\u00c7U BARRAMENTO",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5818",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.5818",
+        "lat": "-25.333053555575745",
+        "lon": "-53.64860013682418",
+        "x": "-53.64860013682418",
+        "y": "-25.333053555575745",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.03864777103495,
+          -25.669656858244704
+        ]
+      },
+      "properties": {
+        "name": "Andresito",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5862",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Andresito - MiniBacia.MGB.5862",
+        "lat": "-25.669656858244704",
+        "lon": "-54.03864777103495",
+        "x": "-54.03864777103495",
+        "y": "-25.669656858244704",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -53.63193253872903,
+          -27.012026620467527
+        ]
+      },
+      "properties": {
+        "name": "ITAPIRANGA",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5866",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "ITAPIRANGA - MiniBacia.MGB.5866",
+        "lat": "-27.012026620467527",
+        "lon": "-53.63193253872903",
+        "x": "-53.63193253872903",
+        "y": "-27.012026620467527",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -51.18977472223495,
+          -20.760214598575736
+        ]
+      },
+      "properties": {
+        "name": "UHE TR\u00caS IRM\u00c3OS BARRAMENTO",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5882",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.5882",
+        "lat": "-20.760214598575736",
+        "lon": "-51.18977472223495",
+        "x": "-51.18977472223495",
+        "y": "-20.760214598575736",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.34636473309491,
+          -18.30935386977986
+        ]
+      },
+      "properties": {
+        "name": "S\u00c3O FRANCISCO",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5886",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "SAO FRANCISCO - MiniBacia.MGB.5886",
+        "lat": "-18.30935386977986",
+        "lon": "-57.34636473309491",
+        "x": "-57.34636473309491",
+        "y": "-18.30935386977986",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.18882527453812,
+          -27.28716392058934
+        ]
+      },
+      "properties": {
+        "name": "El Soberbio",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5920",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.5920",
+        "lat": "-27.28716392058934",
+        "lon": "-54.18882527453812",
+        "x": "-54.18882527453812",
+        "y": "-27.28716392058934",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.392712722908556,
+          -22.54718794497831
+        ]
+      },
+      "properties": {
+        "name": "Rio Pilcomayo - El Raul",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5923",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Rio Pilcomayo - El Raul - MiniBacia.MGB.5923",
+        "lat": "-22.54718794497831",
+        "lon": "-62.392712722908556",
+        "x": "-62.392712722908556",
+        "y": "-22.54718794497831",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.378064319211184,
+          -25.688072504477898
+        ]
+      },
+      "properties": {
+        "name": "UHE ITAIPU HOTEL CATARATAS",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5926",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.5926",
+        "lat": "-25.688072504477898",
+        "lon": "-54.378064319211184",
+        "x": "-54.378064319211184",
+        "y": "-25.688072504477898",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.49150422203599,
+          -25.549411974738995
+        ]
+      },
+      "properties": {
+        "name": "Puerto Iguaz\u00fa",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5934",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Puerto Iguazu - MiniBacia.MGB.5934",
+        "lat": "-25.549411974738995",
+        "lon": "-54.49150422203599",
+        "x": "-54.49150422203599",
+        "y": "-25.549411974738995",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.54732330817931,
+          -19.034765523500845
+        ]
+      },
+      "properties": {
+        "name": "LAD\u00c1RIO (BASE NAVAL)",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5965",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "LADARIO (BASE NAVAL) - MiniBacia.MGB.5965",
+        "lat": "-19.034765523500845",
+        "lon": "-57.54732330817931",
+        "x": "-57.54732330817931",
+        "y": "-19.034765523500845",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.93936522281944,
+          -27.77931977889372
+        ]
+      },
+      "properties": {
+        "name": "PORTO LUCENA",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "5990",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "PORTO LUCENA - MiniBacia.MGB.5990",
+        "lat": "-27.77931977889372",
+        "lon": "-54.93936522281944",
+        "x": "-54.93936522281944",
+        "y": "-27.77931977889372",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.149896227250416,
+          -27.838507644850566
+        ]
+      },
+      "properties": {
+        "name": "San Javier",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6002",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.6002",
+        "lat": "-27.838507644850566",
+        "lon": "-55.149896227250416",
+        "x": "-55.149896227250416",
+        "y": "-27.838507644850566",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.14051932301738,
+          -19.735435955643357
+        ]
+      },
+      "properties": {
+        "name": "PORTO ESPERAN\u00c7A",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6007",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "PORTO ESPERANCA - MiniBacia.MGB.6007",
+        "lat": "-19.735435955643357",
+        "lon": "-57.14051932301738",
+        "x": "-57.14051932301738",
+        "y": "-19.735435955643357",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.73857893653231,
+          -19.886519139255775
+        ]
+      },
+      "properties": {
+        "name": "FORTE COIMBRA",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6031",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "FORTE COIMBRA - MiniBacia.MGB.6031",
+        "lat": "-19.886519139255775",
+        "lon": "-57.73857893653231",
+        "x": "-57.73857893653231",
+        "y": "-19.886519139255775",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -51.216347012834696,
+          -20.3077568616771
+        ]
+      },
+      "properties": {
+        "name": "UHE ILHA SOLTEIRA BARRAMENTO",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6032",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.6032",
+        "lat": "-20.3077568616771",
+        "lon": "-51.216347012834696",
+        "x": "-51.216347012834696",
+        "y": "-20.3077568616771",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.6768259283325,
+          -28.214712887291604
+        ]
+      },
+      "properties": {
+        "name": "Garruchos",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6039",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.6039",
+        "lat": "-28.214712887291604",
+        "lon": "-55.6768259283325",
+        "x": "-55.6768259283325",
+        "y": "-28.214712887291604",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.02724840857002,
+          -28.493254423930143
+        ]
+      },
+      "properties": {
+        "name": "Santo Tom\u00e9",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6075",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.6075",
+        "lat": "-28.493254423930143",
+        "lon": "-56.02724840857002",
+        "x": "-56.02724840857002",
+        "y": "-28.493254423930143",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.490458770478284,
+          -29.099006462522286
+        ]
+      },
+      "properties": {
+        "name": "ITAQUI",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6109",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "ITAQUI - MiniBacia.MGB.6109",
+        "lat": "-29.099006462522286",
+        "lon": "-56.490458770478284",
+        "x": "-56.490458770478284",
+        "y": "-29.099006462522286",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.081665392708665,
+          -29.6721877287079
+        ]
+      },
+      "properties": {
+        "name": "Paso de los libres",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6139",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Paso de los libres - MiniBacia.MGB.6139",
+        "lat": "-29.6721877287079",
+        "lon": "-57.081665392708665",
+        "x": "-57.081665392708665",
+        "y": "-29.6721877287079",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.90145564808539,
+          -21.630285944284473
+        ]
+      },
+      "properties": {
+        "name": "PORTO MURTINHO",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6142",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "PORTO MURTINHO - MiniBacia.MGB.6142",
+        "lat": "-21.630285944284473",
+        "lon": "-57.90145564808539",
+        "x": "-57.90145564808539",
+        "y": "-21.630285944284473",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -53.06711462118057,
+          -22.30982677771407
+        ]
+      },
+      "properties": {
+        "name": "UHE PORTO PRIMAVERA JUSANTE 1",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6153",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.6153",
+        "lat": "-22.30982677771407",
+        "lon": "-53.06711462118057",
+        "x": "-53.06711462118057",
+        "y": "-22.30982677771407",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -53.16358573720913,
+          -22.806792949692873
+        ]
+      },
+      "properties": {
+        "name": "UHE ROSANA PORTO S\u00c3O JOS\u00c9",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6163",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.6163",
+        "lat": "-22.806792949692873",
+        "lon": "-53.16358573720913",
+        "x": "-53.16358573720913",
+        "y": "-22.806792949692873",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.6588869861785,
+          -30.24086969079324
+        ]
+      },
+      "properties": {
+        "name": "Monte caseros",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6169",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Monte caseros - MiniBacia.MGB.6169",
+        "lat": "-30.24086969079324",
+        "lon": "-57.6588869861785",
+        "x": "-57.6588869861785",
+        "y": "-30.24086969079324",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -53.61166343103432,
+          -23.482362593512644
+        ]
+      },
+      "properties": {
+        "name": "UHE ITAIPU CAIU\u00c1",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6183",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "- MiniBacia.MGB.6183",
+        "lat": "-23.482362593512644",
+        "lon": "-53.61166343103432",
+        "x": "-53.61166343103432",
+        "y": "-23.482362593512644",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.02653897203127,
+          -31.204930295556846
+        ]
+      },
+      "properties": {
+        "name": "Salto Grande Abajo",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6196",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Salto Grande Abajo - MiniBacia.MGB.6196",
+        "lat": "-31.204930295556846",
+        "lon": "-58.02653897203127",
+        "x": "-58.02653897203127",
+        "y": "-31.204930295556846",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.30595928813052,
+          -32.426767862471806
+        ]
+      },
+      "properties": {
+        "name": "Concepci\u00f3n del Uruguay",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6226",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Concepcion del Uruguay - MiniBacia.MGB.6226",
+        "lat": "-32.426767862471806",
+        "lon": "-58.30595928813052",
+        "x": "-58.30595928813052",
+        "y": "-32.426767862471806",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.55811511365637,
+          -25.632923134555927
+        ]
+      },
+      "properties": {
+        "name": "Confluencia",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6241",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Confluencia - MiniBacia.MGB.6241",
+        "lat": "-25.632923134555927",
+        "lon": "-54.55811511365637",
+        "x": "-54.55811511365637",
+        "y": "-25.632923134555927",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.659741155537645,
+          -25.198818457656657
+        ]
+      },
+      "properties": {
+        "name": "Puerto Pilcomayo",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6256",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Puerto Pilcomayo - MiniBacia.MGB.6256",
+        "lat": "-25.198818457656657",
+        "lon": "-57.659741155537645",
+        "x": "-57.659741155537645",
+        "y": "-25.198818457656657",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.14758069706442,
+          -26.080989627703897
+        ]
+      },
+      "properties": {
+        "name": "Puerto Formosa",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6276",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Puerto Formosa - MiniBacia.MGB.6276",
+        "lat": "-26.080989627703897",
+        "lon": "-58.14758069706442",
+        "x": "-58.14758069706442",
+        "y": "-26.080989627703897",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.6245123148275,
+          -27.482450604771923
+        ]
+      },
+      "properties": {
+        "name": "Yacyret\u00e1 afluente",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6299",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Ayolas - MiniBacia.MGB.6299",
+        "lat": "-27.482450604771923",
+        "lon": "-56.6245123148275",
+        "x": "-56.6245123148275",
+        "y": "-27.482450604771923",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.791904727698075,
+          -27.441612715719362
+        ]
+      },
+      "properties": {
+        "name": "Corrientes",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6315",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Corrientes - MiniBacia.MGB.6315",
+        "lat": "-27.441612715719362",
+        "lon": "-58.791904727698075",
+        "x": "-58.791904727698075",
+        "y": "-27.441612715719362",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.29570838293825,
+          -29.114776416512747
+        ]
+      },
+      "properties": {
+        "name": "Goya",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6329",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Goya - MiniBacia.MGB.6329",
+        "lat": "-29.114776416512747",
+        "lon": "-59.29570838293825",
+        "x": "-59.29570838293825",
+        "y": "-29.114776416512747",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.697308576897505,
+          -30.66587236662677
+        ]
+      },
+      "properties": {
+        "name": "Rio Colastine",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6343",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Rio Colastine - MiniBacia.MGB.6343",
+        "lat": "-30.66587236662677",
+        "lon": "-59.697308576897505",
+        "x": "-59.697308576897505",
+        "y": "-30.66587236662677",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.551064535110676,
+          -31.757328192502655
+        ]
+      },
+      "properties": {
+        "name": "Paran\u00e1",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6353",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Parana - MiniBacia.MGB.6353",
+        "lat": "-31.757328192502655",
+        "lon": "-60.551064535110676",
+        "x": "-60.551064535110676",
+        "y": "-31.757328192502655",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.556205339389315,
+          -32.022135009311775
+        ]
+      },
+      "properties": {
+        "name": "Diamante",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6356",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Diamante - MiniBacia.MGB.6356",
+        "lat": "-32.022135009311775",
+        "lon": "-60.556205339389315",
+        "x": "-60.556205339389315",
+        "y": "-32.022135009311775",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.80795951220391,
+          -32.90593578831979
+        ]
+      },
+      "properties": {
+        "name": "Rosario",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6362",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Rosario - MiniBacia.MGB.6362",
+        "lat": "-32.90593578831979",
+        "lon": "-60.80795951220391",
+        "x": "-60.80795951220391",
+        "y": "-32.90593578831979",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.238730791067375,
+          -33.69614867822977
+        ]
+      },
+      "properties": {
+        "name": "Ibicuy",
+        "type": "mean",
+        "moduleInstanceId": "MGB_Forecast",
+        "locationId": "6377",
+        "parameterId": "Q.sim",
+        "timeStep": {
+          "unit": "second",
+          "multiplier": "86400"
+        },
+        "startDate": {
+          "date": "2026-10-12",
+          "time": "03:00:00"
+        },
+        "endDate": {
+          "date": "2026-10-14",
+          "time": "03:00:00"
+        },
+        "forecastDate": {
+          "date": "2026-10-13",
+          "time": "03:00:00"
+        },
+        "missVal": "-999.0",
+        "stationName": "Ibicuy - MiniBacia.MGB.6377",
+        "lat": "-33.69614867822977",
+        "lon": "-59.238730791067375",
+        "x": "-59.238730791067375",
+        "y": "-33.69614867822977",
+        "z": "0.0",
+        "units": "m3/s",
+        "creationDate": "2026-10-13",
+        "creationTime": "15:30:00",
+        "approvedDate": {
+          "date": "2026-10-13",
+          "time": "15:31:32"
+        }
+      }
+    }
+  ]
+}
